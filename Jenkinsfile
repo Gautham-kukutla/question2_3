@@ -9,9 +9,8 @@ pipeline {
 		   }  }
 	  stage('Cppcheck'){
 		  steps{
-			   sh '''#!/bin/bash
-
-                    cppcheck --xml --xml-version=2 SOURCE_DIRECTORY 2> cppcheck.xml'''
+			   bat '''#!/bin/bash
+			   cppcheck --xml --xml-version=2 . 2> cppcheck.xml'''
 			  
 			  publishCppcheck allowNoReport: true, pattern: 'cppcheck-result.xml'
 		  }}
