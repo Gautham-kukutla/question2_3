@@ -9,9 +9,9 @@ pipeline {
 		   }  }
 	  stage('Cppcheck'){
 		  steps{
-			   bat '''#!/bin/bash
-			   cppcheck --xml --xml-version=2 . 2> cppcheck.xml'''
-			  scanForIssues tool: cppcheck(pattern: 'cppcheck.xml')
+			   
+			   bat "cppcheck --xml --xml-version=2 . 2> cppcheck.xml"
+			 
 			  
 			  publishCppcheck allowNoReport: true, pattern: 'cppcheck-result.xml'
 		  }}
