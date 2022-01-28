@@ -10,7 +10,7 @@ pipeline {
 	  stage('Cppcheck'){
 		  steps{
 			   
-			   bat "cppcheck --xml --xml-version=2 . 2> cppcheck.xml"
+			   bat "cppcheck --force --xml --xml-version=2 . 2> cppcheck.xml"
 			 
 			  
 			  publishCppcheck allowNoReport: true, pattern: 'cppcheck.xml'
